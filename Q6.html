@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student registration form</title>
+        <style>
+            body{
+                font-family: Arial;
+            }
+            .form-container{
+                background-color: #0b1b26;
+                color: white;
+                padding:20px;
+                width:400px;
+                margin: 20px auto;
+                border-radius: 10px;
+            }
+            label{
+                display: block;
+                margin: 10px 0 2px;
+            }
+            .form-container input{
+                width:95%;
+                padding: 5px;
+                margin-bottom: 10px;
+                display: block;
+            }
+            table{
+                margin-top: 20px;
+                border-collapse: collapse;
+                width: 100%;
+                color: black;
+                border: 1px solid black;
+            }
+            th,td{
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <h3>Student Registration Form</h3>
+            <form id="regForm">
+                <label>Name of Student</label>
+                <input type="text" id="name">
+
+                <label>Mobile No</label>
+                <input type="text" id="mobile">
+
+                <label>Address Line</label>
+                <input type="text" id="address">
+
+                <label>City</label>
+                <input type="text" id="city">
+
+                <label>State</label>
+                <input type="text" id="state">
+
+                <label>Pincode</label>
+                <input type="text" id="pincode">
+
+                <button type="button" onclick="submitForm()">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+
+        <table id="outputTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Modile No</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <script>
+            function submitForm(){
+
+                let name=document.getElementById("name").value.trim();
+                let mobile=document.getElementById("mobile").value.trim();
+                let address=document.getElementById("address").value.trim();
+                let city=document.getElementById("city").value.trim();
+                let state=document.getElementById("state").value.trim();
+                let pincode=document.getElementById("pincode").value.trim();
+
+                if(!name || !mobile || !address || !city || !state || !pincode){
+                    alert("All fields are required!");
+                    return;
+                }
+
+                if (!/^[A-Za-z\s]+$/.test(name)) {
+                    alert("Name should contain only alphabets.");
+                    return;
+                }
+
+                if (!/^\d{10}$/.test(mobile)) {
+                    alert("Mobile number must be exactly 10 digits.");
+                    return;
+                }
+
+                if (!/^\d{6}$/.test(pincode)) {
+                    alert("Pincode must be exactly 6 digits.");
+                    return;
+                }
+
+                document.getElementById("outputTable").style.display="table";
+
+                let table = document.getElementById("outputTable");
+                let row = table.insertRow(-1);
+                row.insertCell(0).innerText = name;
+                row.insertCell(1).innerText = mobile;
+                row.insertCell(2).innerText = state;
+
+                document.getElementById("regForm").reset();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select Menu Items</title>
+    <style>
+      .menu-item {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid gray;
+        width: 200px;
+      }
+      .highlight {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h3>Menu List</h3>
+
+    <div class="menu-item" data-menu="true">Home</div>
+    <div class="menu-item" data-menu="false">About</div>
+    <div class="menu-item" data-menu="true">Services</div>
+    <div class="menu-item">Contact</div>
+
+    <script>
+      const items = document.querySelectorAll('.menu-item[data-menu="true"]');
+
+      items.forEach((item, index) => {
+        console.log('Matched Element ${index + 1}:', item.textContent);
+        item.classList.add('highlight');
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Factorial Calculator</title>
+    </head>
+    <body>
+        <script>
+            function findFactorial(n){
+                if (n<0){
+                    return "Invalid input";
+                }
+                let fact=1;
+                for(let i=1; i<=n;i++){
+                    fact*=i;
+                }
+                return fact;
+            }
+
+            let number=prompt("Enter a number to find its the factorial: ");
+
+            number=parseInt(number);
+
+            let result=findFactorial(number);
+
+            console.log("Factorial of "+number+" is: "+result);
+            alert("Factorial of "+number+" is: "+result);
+        </script>
+    </body>
+</html>

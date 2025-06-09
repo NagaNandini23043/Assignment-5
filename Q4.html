@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Temperature Category</title>
+    </head>
+    <body>
+        <script>
+            let temp=prompt("Enter the temperature value in °C: ");
+
+            temp=parseFloat(temp);
+
+            let category="";
+
+            if (temp<0){
+                category="Freezing";
+            }
+            else if (temp>0 && temp<=15){
+                category="Cold";
+            }
+            else if (temp>15 && temp<=30){
+                category="Moderate";
+            }
+            else if (temp>30){
+                category="Hot";
+            }
+            else{
+                category="Invalid input";
+            }
+
+            alert("Temperature Category: "+category);
+            console.log("Entered Temperature: "+temp+"°C - Category: "+category);
+            
+        </script>
+    </body>
+</html>
